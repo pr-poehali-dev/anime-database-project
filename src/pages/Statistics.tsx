@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useData } from "@/contexts/DataContext";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,18 +9,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import { animeDatabase, studios } from "@/data/animeData";
 
 const Statistics = () => {
   const navigate = useNavigate();
+  const { animeList, studiosList } = useData();
 
   // Подсчёт статистики
-  const totalAnime = animeDatabase.length;
-  const animationStudios = studios.filter((s) => s.type === "animation").length;
-  const voiceStudios = studios.filter((s) => s.type === "voice").length;
+  const totalAnime = animeList.length;
+  const animationStudios = studiosList.filter(
+    (s) => s.type === "animation",
+  ).length;
+  const voiceStudios = studiosList.filter((s) => s.type === "voice").length;
 
   // Статистика по возрастным рейтингам
-  const ageRatingStats = animeDatabase.reduce(
+  const ageRatingStats = animeList.reduce(
     (acc, anime) => {
       acc[anime.ageRating] = (acc[anime.ageRating] || 0) + 1;
       return acc;
@@ -28,7 +31,7 @@ const Statistics = () => {
   );
 
   // Статистика по годам
-  const yearStats = animeDatabase.reduce(
+  const yearStats = animeList.reduce(
     (acc, anime) => {
       const decade = `${Math.floor(anime.year / 10) * 10}s`;
       acc[decade] = (acc[decade] || 0) + 1;
@@ -39,13 +42,13 @@ const Statistics = () => {
 
   // Средний рейтинг
   const averageRating = (
-    animeDatabase.reduce((acc, anime) => acc + anime.rating, 0) / totalAnime
+    animeList.reduce((acc, anime) => acc + anime.rating, 0) / totalAnime
   ).toFixed(1);
 
   // Топ студии по количеству аниме
-  const studioStats = animeDatabase.reduce(
+  const studioStats = animeList.reduce(
     (acc, anime) => {
-      const studio = studios.find((s) => s.id === anime.studioId);
+      const studio = studiosList.find((s) => s.id === anime.studioId);
       if (studio) {
         acc[studio.name] = (acc[studio.name] || 0) + 1;
       }

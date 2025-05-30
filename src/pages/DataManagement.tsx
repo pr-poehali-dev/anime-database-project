@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useData } from "@/contexts/DataContext";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -29,8 +30,14 @@ import { useNavigate } from "react-router-dom";
 
 const DataManagement = () => {
   const navigate = useNavigate();
-  const [animeList, setAnimeList] = useState<Anime[]>(animeDatabase);
-  const [studiosList, setStudiosList] = useState<Studio[]>(studios);
+  const {
+    animeList,
+    studiosList,
+    addAnime,
+    addStudio,
+    deleteAnime,
+    deleteStudio,
+  } = useData();
 
   const [newAnime, setNewAnime] = useState({
     title: "",
@@ -57,8 +64,7 @@ const DataManagement = () => {
   const handleAddAnime = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const anime: Anime = {
-      id: Math.max(...animeList.map((a) => a.id), 0) + 1,
+    addAnime({
       title: newAnime.title,
       originalTitle: newAnime.originalTitle,
       description: newAnime.description,
@@ -70,9 +76,7 @@ const DataManagement = () => {
       voiceStudioId: parseInt(newAnime.voiceStudioId),
       rating: parseFloat(newAnime.rating),
       awardId: parseInt(newAnime.awardId) || 0,
-    };
-
-    setAnimeList([...animeList, anime]);
+    });
     setNewAnime({
       title: "",
       originalTitle: "",
@@ -91,16 +95,13 @@ const DataManagement = () => {
   const handleAddStudio = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const studio: Studio = {
-      id: Math.max(...studiosList.map((s) => s.id), 0) + 1,
+    addStudio({
       name: newStudio.name,
       description: newStudio.description,
       location: newStudio.location,
       foundingYear: parseInt(newStudio.foundingYear),
       type: newStudio.type,
-    };
-
-    setStudiosList([...studiosList, studio]);
+    });
     setNewStudio({
       name: "",
       description: "",
@@ -111,11 +112,11 @@ const DataManagement = () => {
   };
 
   const handleDeleteAnime = (id: number) => {
-    setAnimeList(animeList.filter((anime) => anime.id !== id));
+    deleteAnime(id);
   };
 
   const handleDeleteStudio = (id: number) => {
-    setStudiosList(studiosList.filter((studio) => studio.id !== id));
+    deleteStudio(id);
   };
 
   const animationStudios = studiosList.filter((s) => s.type === "animation");
