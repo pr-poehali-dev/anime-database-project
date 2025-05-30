@@ -21,6 +21,7 @@ import { animeDatabase } from "@/data/animeData";
 
 const AgeSearch = () => {
   const navigate = useNavigate();
+  const { animeList } = useData();
   const [fromAge, setFromAge] = useState<string>("");
   const [toAge, setToAge] = useState<string>("");
   const [results, setResults] = useState<any[]>([]);

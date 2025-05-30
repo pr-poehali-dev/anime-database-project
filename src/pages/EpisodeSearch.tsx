@@ -20,7 +20,7 @@ import { useData } from "@/contexts/DataContext";
 
 const EpisodeSearch = () => {
   const navigate = useNavigate();
-  const { animeList } = useDataContext();
+  const { animeList } = useData();
   const [selectedEpisodes, setSelectedEpisodes] = useState<string>("");
   const [selectedYear, setSelectedYear] = useState<string>("");
   const [availableYears, setAvailableYears] = useState<number[]>([]);
