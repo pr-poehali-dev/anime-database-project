@@ -16,10 +16,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Icon from "@/components/ui/icon";
-import { animeDatabase } from "@/data/animeData";
+import { useDataContext } from "@/contexts/DataContext";
 
 const EpisodeSearch = () => {
   const navigate = useNavigate();
+  const { animeList } = useDataContext();
   const [selectedEpisodes, setSelectedEpisodes] = useState<string>("");
   const [selectedYear, setSelectedYear] = useState<string>("");
   const [availableYears, setAvailableYears] = useState<number[]>([]);
@@ -28,7 +29,7 @@ const EpisodeSearch = () => {
 
   // Получаем уникальные количества эпизодов
   const episodeCounts = Array.from(
-    new Set(animeDatabase.map((anime) => anime.episodes)),
+    new Set(animeList.map((anime) => anime.episodes)),
   ).sort((a, b) => a - b);
 
   const handleEpisodeSelect = (episodes: string) => {
@@ -36,7 +37,7 @@ const EpisodeSearch = () => {
 
     // Фильтруем годы для выбранного количества эпизодов
     const episodeNum = parseInt(episodes);
-    const years = animeDatabase
+    const years = animeList
       .filter((anime) => anime.episodes === episodeNum)
       .map((anime) => anime.year);
 
@@ -52,7 +53,7 @@ const EpisodeSearch = () => {
     const episodeNum = parseInt(selectedEpisodes);
     const yearNum = parseInt(year);
 
-    const filtered = animeDatabase.filter(
+    const filtered = animeList.filter(
       (anime) => anime.episodes === episodeNum && anime.year === yearNum,
     );
 

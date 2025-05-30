@@ -36,7 +36,7 @@ const AgeSearch = () => {
     const fromAgeNum = getAgeNumber(fromAge);
     const toAgeNum = getAgeNumber(toAge);
 
-    const filtered = animeDatabase.filter((anime) => {
+    const filtered = animeList.filter((anime) => {
       const animeAge = getAgeNumber(anime.ageRating);
       return animeAge >= fromAgeNum && animeAge <= toAgeNum;
     });
