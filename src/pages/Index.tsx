@@ -125,7 +125,7 @@ const Index = () => {
               <div className="text-gray-600 text-sm"></div>
             </div>
             <div className="">
-              <div className="text-3xl font-bold text-orange-600">
+              <div className="">
                 {Math.round(
                   (animeDatabase.reduce((acc, anime) => acc + anime.rating, 0) /
                     animeDatabase.length) *
