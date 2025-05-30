@@ -75,12 +75,9 @@ const DatabaseInfo = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800">
-                    Система управления аниме каталогом
+                    Разработчик:{" "}
                   </h3>
-                  <p className="text-gray-600">
-                    Разработано с использованием современных технологий React и
-                    TypeScript
-                  </p>
+                  <p className="text-gray-600"></p>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
