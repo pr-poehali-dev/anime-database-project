@@ -16,6 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Icon from "@/components/ui/icon";
+import { useData } from "@/contexts/DataContext";
 import { animeDatabase } from "@/data/animeData";
 
 const AgeSearch = () => {
