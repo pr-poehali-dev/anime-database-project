@@ -139,9 +139,7 @@ const Index = () => {
 
         {/* Featured Anime */}
         <div className="mt-16 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
-            Топ аниме
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800"></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {animeDatabase
               .sort((a, b) => b.rating - a.rating)
