@@ -75,7 +75,7 @@ const DatabaseInfo = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800">
-                    Разработчик:{" "}
+                    Разработчик: Сокульская Алина Группа ИВТ-Б22
                   </h3>
                   <p className="text-gray-600"></p>
                 </div>
