@@ -51,25 +51,25 @@ const DataManagement = () => {
     description: "",
     location: "",
     foundingYear: "",
-    type: "",
+    type: "animation" as const,
   });
 
-  const handleAddAnime = () => {
-    if (!newAnime.title || !newAnime.year) return;
+  const handleAddAnime = (e: React.FormEvent) => {
+    e.preventDefault();
 
     const anime: Anime = {
-      id: Math.max(...animeList.map((a) => a.id)) + 1,
+      id: Math.max(...animeList.map((a) => a.id), 0) + 1,
       title: newAnime.title,
       originalTitle: newAnime.originalTitle,
       description: newAnime.description,
       year: parseInt(newAnime.year),
-      episodes: parseInt(newAnime.episodes) || 1,
-      studioId: parseInt(newAnime.studioId) || 1,
-      originalLanguage: newAnime.originalLanguage || "Японский",
+      episodes: parseInt(newAnime.episodes),
+      studioId: parseInt(newAnime.studioId),
+      originalLanguage: newAnime.originalLanguage,
       ageRating: newAnime.ageRating,
-      voiceStudioId: parseInt(newAnime.voiceStudioId) || 1,
-      rating: parseFloat(newAnime.rating) || 0,
-      awardId: parseInt(newAnime.awardId) || 1,
+      voiceStudioId: parseInt(newAnime.voiceStudioId),
+      rating: parseFloat(newAnime.rating),
+      awardId: parseInt(newAnime.awardId) || 0,
     };
 
     setAnimeList([...animeList, anime]);
@@ -88,16 +88,16 @@ const DataManagement = () => {
     });
   };
 
-  const handleAddStudio = () => {
-    if (!newStudio.name || !newStudio.type) return;
+  const handleAddStudio = (e: React.FormEvent) => {
+    e.preventDefault();
 
     const studio: Studio = {
-      id: Math.max(...studiosList.map((s) => s.id)) + 1,
+      id: Math.max(...studiosList.map((s) => s.id), 0) + 1,
       name: newStudio.name,
       description: newStudio.description,
       location: newStudio.location,
-      foundingYear: parseInt(newStudio.foundingYear) || 2000,
-      type: newStudio.type as "animation" | "voice",
+      foundingYear: parseInt(newStudio.foundingYear),
+      type: newStudio.type,
     };
 
     setStudiosList([...studiosList, studio]);
@@ -106,7 +106,7 @@ const DataManagement = () => {
       description: "",
       location: "",
       foundingYear: "",
-      type: "",
+      type: "animation",
     });
   };
 
