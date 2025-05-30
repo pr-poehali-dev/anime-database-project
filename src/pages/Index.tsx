@@ -71,9 +71,9 @@ const Index = () => {
             редактирования
           </p>
           <div className="flex justify-center gap-8 mt-6 text-sm">
-            <span>📺 {stats.totalAnime} аниме</span>
-            <span>🎨 {stats.animationStudios} студий анимации</span>
-            <span>🎤 {stats.voiceStudios} студий озвучки</span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
@@ -110,21 +110,19 @@ const Index = () => {
 
         {/* Quick Stats */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
-            Быстрая статистика
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800"></h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg p-6 text-center shadow-lg">
+            <div className="">
               <div className="text-3xl font-bold text-purple-600">
                 {stats.totalAnime}
               </div>
-              <div className="text-gray-600 text-sm">Всего аниме</div>
+              <div className="text-gray-600 text-sm"></div>
             </div>
             <div className="bg-white rounded-lg p-6 text-center shadow-lg">
               <div className="text-3xl font-bold text-blue-600">
                 {stats.animationStudios}
               </div>
-              <div className="text-gray-600 text-sm">Студий анимации</div>
+              <div className="text-gray-600 text-sm"></div>
             </div>
             <div className="bg-white rounded-lg p-6 text-center shadow-lg">
               <div className="text-3xl font-bold text-green-600">
