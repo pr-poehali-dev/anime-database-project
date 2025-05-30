@@ -121,9 +121,7 @@ const Index = () => {
               <div className="text-gray-600 text-sm"></div>
             </div>
             <div className="">
-              <div className="text-3xl font-bold text-green-600">
-                {stats.voiceStudios}
-              </div>
+              <div className="">{stats.voiceStudios}</div>
               <div className="text-gray-600 text-sm"></div>
             </div>
             <div className="">
@@ -134,7 +132,7 @@ const Index = () => {
                     10,
                 ) / 10}
               </div>
-              <div className="text-gray-600 text-sm">Средний рейтинг</div>
+              <div className="text-gray-600 text-sm"></div>
             </div>
           </div>
         </div>
