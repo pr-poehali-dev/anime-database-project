@@ -113,7 +113,9 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-center mb-8 text-gray-800"></h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="">
-              <div className="">{stats.totalAnime}</div>
+              <div className="text-3xl font-bold text-center">
+                {stats.totalAnime}
+              </div>
               <div className="text-gray-600 text-sm"></div>
             </div>
             <div className="">
